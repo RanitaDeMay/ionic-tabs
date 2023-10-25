@@ -39,32 +39,10 @@
               display: flex;
               justify-content: flex-end;
             "><ion-button shape="round"
-                          (click)="insertProduct(product.name, product.price, 1)">Agregar al carrito</ion-button></div>
+                          (click)="insertProduct(product)">Agregar al carrito</ion-button></div>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
-
-    <ion-list size="6" *ngFor="let carrito of carritos;">
-      <ion-item>
-        <ion-label>
-          <h2>{{carrito.name}}</h2>
-          <p>${{carrito.price}}</p>
-          <p>x{{carrito.amount}}</p>
-        </ion-label>
-        <ion-label>
-          <p>Precio total</p>
-          <p>${{carrito.totalPrice}}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-
-    <ion-item>
-      <ion-label >
-        <h1>Total carrito:</h1>
-        <p>${{suma}}</p>
-      </ion-label>
-    </ion-item>
-
   </ion-grid>
 </ion-content>

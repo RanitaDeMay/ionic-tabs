@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { carrito, product } from '../models/product.model';
+import { product } from '../models/product.model';
+import { CarritoService } from '../carrito.service';
 
 @Component({
   selector: 'app-tab1',
@@ -13,10 +14,8 @@ export class Tab1Page {
   public filter = [
     'abarrotes','frutas y verduras','limpieza','farmacia'
   ];
-  public carritos: carrito[] = [];
-  public suma: number = 0;
 
-  constructor() {
+  constructor(public carritoService: CarritoService) {
     this.products.push({
       name: 'Coca cola',
       photo: 'https://ionicframework.com/docs/img/demos/card-media.png',
@@ -61,29 +60,7 @@ export class Tab1Page {
       });
   }
 
-  public insertProduct(nombre: string, precio: number, cantidad: number): void {
-    // Buscar si ya existe un producto con el mismo nombre en carritos[]
-    const productoExistente = this.carritos.find((carrito) => carrito.name === nombre);
-    if (productoExistente) {
-      productoExistente.amount += cantidad;
-      productoExistente.totalPrice += precio;
-    } else {
-      this.carritos.push({
-        name: nombre,
-        price: precio,
-        totalPrice: precio,
-        amount: cantidad,
-      });
-    }
-
-    this.totalUpdate();
+  public insertProduct(product: product){
+    this.carritoService.insertProduct(product);
   }
-
-  public totalUpdate(){
-    this.suma = 0;
-    for(let carrito of this.carritos) {
-      this.suma += carrito.totalPrice;
-    }
-  }
-
 }
