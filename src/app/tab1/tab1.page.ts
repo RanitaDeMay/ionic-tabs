@@ -14,6 +14,7 @@ export class Tab1Page {
   public filter = [
     'abarrotes','frutas y verduras','limpieza','farmacia'
   ];
+  isFavorito: { [key: string]: boolean } = {};
 
   constructor(public carritoService: CarritoService) {
     this.products.push({
@@ -50,6 +51,11 @@ export class Tab1Page {
 
     //IGUALAMOS el nuevo arreglo a products
     this.productsFound = this.products;
+
+    //Cada estado de favorito inicializa en falso
+    this.products.forEach(product => {
+      this.isFavorito[product.name] = false;
+    });
   }
 
   public filterProducts():void {
@@ -62,5 +68,13 @@ export class Tab1Page {
 
   public insertProduct(product: product){
     this.carritoService.insertProduct(product);
+  }
+
+  agregarAFavoritos(product: product) {
+    // Agregar el producto a la lista de favoritos
+    //this.favoritos.push(producto);
+
+    // Cambiar el estado del botón
+      this.isFavorito[product.name] = !this.isFavorito[product.name];
   }
 }

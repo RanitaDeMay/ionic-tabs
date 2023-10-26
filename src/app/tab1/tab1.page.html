@@ -34,12 +34,13 @@
         
           <ion-card-content>
             <div class="">{{product.description}}</div>
-            <div class="">Tipo: <ion-badge color='primary'>{{product.type}}</ion-badge> </div>
-            <div style="
-              display: flex;
-              justify-content: flex-end;
-            "><ion-button shape="round"
-                          (click)="insertProduct(product)">Agregar al carrito</ion-button></div>
+            <div class="">Tipo: <ion-badge color='primary'>{{product.type}}</ion-badge></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <ion-button (click)="agregarAFavoritos(product)">
+                <ion-icon slot="icon-only" [name]="isFavorito[product.name] ? 'star' : 'star-outline'"></ion-icon>
+              </ion-button>
+              <ion-button shape="round" (click)="insertProduct(product)">Agregar al carrito</ion-button>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
