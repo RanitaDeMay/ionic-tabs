@@ -12,12 +12,12 @@
       <ion-item>
         <ion-label>
           <h2>{{carrito.name}}</h2>
-          <p>${{carrito.price}}</p>
+          <p>{{carrito.price | currency}}</p>
           <p>x{{carrito.amount}}</p>
         </ion-label>
         <ion-label>
           <p>Precio total</p>
-          <p>${{carrito.totalPrice}}</p>
+          <p>{{carrito.totalPrice | currency}}</p>
         </ion-label>
       </ion-item>
     </ion-list>
@@ -25,7 +25,7 @@
     <ion-item>
       <ion-label >
         <h1>Total carrito:</h1>
-        <p>${{carritoService.suma}}</p>
+        <p>{{carritoService.suma | currency}}</p>
       </ion-label>
     </ion-item>
   </ion-grid>
