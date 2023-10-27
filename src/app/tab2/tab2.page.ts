@@ -1,6 +1,6 @@
 import { CarritoService } from './../carrito.service';
 import { Component } from '@angular/core';
-import { carrito, product } from '../models/product.model';
+import { carrito } from '../models/product.model';
 
 @Component({
   selector: 'app-tab2',

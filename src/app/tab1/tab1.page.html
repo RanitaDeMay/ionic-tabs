@@ -37,7 +37,7 @@
             <div class="">Tipo: <ion-badge color='primary'>{{product.type}}</ion-badge></div>
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <ion-button (click)="agregarAFavoritos(product)">
-                <ion-icon slot="icon-only" [name]="isFavorito[product.name] ? 'star' : 'star-outline'"></ion-icon>
+                <ion-icon slot="icon-only" [name]="favoritosService.isFavorito[product.name] ? 'star' : 'star-outline'"></ion-icon>
               </ion-button>
               <ion-button shape="round" (click)="insertProduct(product)">Agregar al carrito</ion-button>
             </div>

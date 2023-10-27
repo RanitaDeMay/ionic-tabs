@@ -1,3 +1,4 @@
+import { FavoritosService } from './../favoritos.service';
 import { Component } from '@angular/core';
 import { product } from '../models/product.model';
 import { CarritoService } from '../carrito.service';
@@ -14,9 +15,8 @@ export class Tab1Page {
   public filter = [
     'abarrotes','frutas y verduras','limpieza','farmacia'
   ];
-  isFavorito: { [key: string]: boolean } = {};
 
-  constructor(public carritoService: CarritoService) {
+  constructor(public carritoService: CarritoService, public favoritosService: FavoritosService) {
     this.products.push({
       name: 'Coca cola',
       photo: 'https://ionicframework.com/docs/img/demos/card-media.png',
@@ -54,7 +54,7 @@ export class Tab1Page {
 
     //Cada estado de favorito inicializa en falso
     this.products.forEach(product => {
-      this.isFavorito[product.name] = false;
+      this.favoritosService.isFavorito[product.name] = false;
     });
   }
 
@@ -71,10 +71,6 @@ export class Tab1Page {
   }
 
   agregarAFavoritos(product: product) {
-    // Agregar el producto a la lista de favoritos
-    //this.favoritos.push(producto);
-
-    // Cambiar el estado del botón
-      this.isFavorito[product.name] = !this.isFavorito[product.name];
+    this.favoritosService.agregarAFavoritos(product);
   }
 }
