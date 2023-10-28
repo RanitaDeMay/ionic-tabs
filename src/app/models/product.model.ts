@@ -13,7 +13,8 @@ export interface carrito {
     amount: number;
 }
 
-export interface compras {
+export interface compra {
+    date: Date;
     amount: number;
     total: number;
 }

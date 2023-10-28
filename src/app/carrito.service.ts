@@ -14,6 +14,12 @@ export class CarritoService {
     return this.carritos;
   }
 
+  getSum(){
+    const amountSum = this.carritos.reduce((sum, carrito) => sum + carrito.amount, 0);
+    const totalSum = this.carritos.reduce((sum, carrito) => sum + carrito.totalPrice, 0);
+    return {amount: amountSum, total: totalSum}
+  }
+
   public insertProduct(product: product): void {
     const productoExistente = this.carritos.find((carrito) => carrito.name === product.name);
     // Buscar si ya existe un producto con el mismo nombre en carritos[]
@@ -32,9 +38,12 @@ export class CarritoService {
   }
 
   public totalUpdate(){
-    this.suma = 0;
-    for(let carrito of this.carritos) {
-      this.suma += carrito.totalPrice;
-    }
+    const {total} = this.getSum();
+    this.suma = total;
+  }
+
+  public clearCarrito(){
+    this.carritos = [];
+    this.totalUpdate();
   }
 }

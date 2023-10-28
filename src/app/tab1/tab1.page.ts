@@ -20,7 +20,7 @@ export class Tab1Page {
   constructor(public carritoService: CarritoService, public favoritosService: FavoritosService, public toastController: ToastController) {
     this.products.push({
       name: 'Coca cola',
-      photo: 'https://ionicframework.com/docs/img/demos/card-media.png',
+      photo: 'http://picsum.photos/1024/512?random=',
       description: 'lorem ipsun dolor sit amet',
       price: 20,
       type: 'Abarrotes'
@@ -28,7 +28,7 @@ export class Tab1Page {
 
     this.products.push({
       name: 'Fabuloso 300ml',
-      photo: 'https://ionicframework.com/docs/img/demos/card-media.png',
+      photo: 'http://picsum.photos/1024/512?random=',
       description: 'lorem ipsun dolor sit amet',
       price: 24,
       type: 'Limpieza'
@@ -36,7 +36,7 @@ export class Tab1Page {
 
     this.products.push({
       name: 'Aguacuate Hass',
-      photo: 'https://ionicframework.com/docs/img/demos/card-media.png',
+      photo: 'http://picsum.photos/1024/512?random=',
       description: 'lorem ipsun dolor sit amet',
       price: 80,
       type: 'Frutas y verduras'
@@ -44,7 +44,7 @@ export class Tab1Page {
 
     this.products.push({
       name: 'Crema hidratante',
-      photo: 'https://ionicframework.com/docs/img/demos/card-media.png',
+      photo: 'http://picsum.photos/1024/512?random=',
       description: 'lorem ipsun dolor sit amet',
       price: 89,
       type: 'Farmacia'
@@ -62,7 +62,7 @@ export class Tab1Page {
   async mostrarToast() {
     const toast = await this.toastController.create({
       message: 'Producto agregado al carrito',
-      duration: 2300, // Duración en milisegundos (3 segundos en este caso)
+      duration: 2000, // Duración en milisegundos (3 segundos en este caso)
       position: 'top' // Puedes ajustar la posición según tus necesidades
     });
     toast.present();
@@ -74,7 +74,7 @@ export class Tab1Page {
     : 'Producto quitado de favoritos';
   const toast = await this.toastController.create({
     message: message,
-    duration: 2300,
+    duration: 2000,
     position: 'top'
   });
   toast.present();

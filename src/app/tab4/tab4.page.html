@@ -6,16 +6,16 @@
 
 <ion-content [fullscreen]="true">
   <ion-grid [fixed]="true">
-    <ion-list size="6">
+    <ion-list size="6" *ngFor="let compra of compras; index as i"> 
       <ion-item>
         <ion-label>
-          <h2>Carrito 1</h2>
+          <h2>{{ compra.date | date:'d MMMM y h:mm:ss a'  }}</h2>
           <p>Productos</p>
-          <p>5</p>
+          <p>{{ compra.amount }}</p>
         </ion-label>
         <ion-label>
           <p>Precio total</p>
-          <p>$10000</p>
+          <p>{{ compra.total | currency }}</p>
         </ion-label>
       </ion-item>
     </ion-list>

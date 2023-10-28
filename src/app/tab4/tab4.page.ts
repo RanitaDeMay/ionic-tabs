@@ -1,3 +1,5 @@
+import { ComprasService } from './../compras.service';
+import { compra } from './../models/product.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tab4.page.html',
   styleUrls: ['./tab4.page.scss'],
 })
-export class Tab4Page implements OnInit {
 
-  constructor() { }
+export class Tab4Page {
+  public compras: compra[] = [];
 
-  ngOnInit() {
+  constructor(public comprasService: ComprasService) {
+    this.compras = this.comprasService.getCompras();
   }
-
 }
