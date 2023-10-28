@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
+import { CarritoService } from '../carrito.service';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 
 @NgModule({
@@ -17,4 +17,7 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
   ],
   declarations: [Tab2Page]
 })
-export class Tab2PageModule {}
+export class Tab2PageModule {
+  constructor(private carritoService: CarritoService) {}
+}
+

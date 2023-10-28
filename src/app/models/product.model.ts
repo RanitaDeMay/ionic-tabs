@@ -12,3 +12,8 @@ export interface carrito {
     totalPrice: number;
     amount: number;
 }
+
+export interface compras {
+    amount: number;
+    total: number;
+}

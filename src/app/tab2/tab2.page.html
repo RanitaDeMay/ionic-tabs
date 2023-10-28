@@ -28,5 +28,6 @@
         <p>{{carritoService.suma | currency}}</p>
       </ion-label>
     </ion-item>
+    <ion-button [disabled]="carritoService.suma === 0">Comprar</ion-button>
   </ion-grid>
 </ion-content>
